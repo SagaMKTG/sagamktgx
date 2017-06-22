@@ -18,6 +18,8 @@ Fire.Graphics = Fire.Gr = (function( pixi ){
 
 		this.ANCHOR_POSITION = 0.5;
 
+		this.firstTime = true; // get rid of this soon..
+
 		return this;
 
 	}
@@ -99,7 +101,14 @@ Fire.Graphics = Fire.Gr = (function( pixi ){
 
 			this.graphics.endFill();
 
-			this.app.stage.addChild( this.graphics );
+			// get rid of this soon...
+
+			if( this.firstTime ) {
+				
+				this.app.stage.addChild( this.graphics );
+
+				this.firstTime = false;
+			}
 		}
 
 	});

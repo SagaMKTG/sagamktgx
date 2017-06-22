@@ -27,11 +27,11 @@ var BlockDemo = window.BlockDemo = {
 
 			fillColor: "0x1b1b1b",
 
-			transition: "WipeRight",
+			transition: "WipeRightThreeQuartersDiagonal",
 
-			easing: "quintIn",
+			easing: "quintOut",
 
 			delay: 18	
-		}
+		} 
 	]
 };

@@ -4,6 +4,10 @@ Fire.Transitions = (function(){
 
 		WIPE_RIGHT		:	"WipeRight",
 
+		WIPE_RIGHT_HALF	:	"WipeRightHalf",
+
+		WIPE_RIGHT_THREEQUARTERS_DIAGONAL	:	"WipeRightThreeQuartersDiagonal",
+
 		WIPE_LEFT		:	"WipeLeft",
 
 		WIPE_UP			:	"WipeUp",

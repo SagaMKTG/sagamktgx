@@ -27,7 +27,7 @@ Fire.Graph = Fire.G = (function(){
 
 		x : function ( a ) {
 
-			// return ( a / 100 * this.width ) - this.width/2;
+			//return ( a / 100 * this.width ) - this.width/2;
 			return ( a / 100 * this.width );
 		},
 

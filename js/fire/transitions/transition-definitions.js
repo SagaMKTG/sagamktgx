@@ -28,6 +28,60 @@ Fire.TransitionDefs = (function( tr ) {
 		} 
 	];
 
+	tr_def[ tr.WIPE_RIGHT_HALF ] = [ 
+
+		// Point 0
+		{ 
+			start: { x: 0,		y: 0 },
+			end:   { x: 0,		y: 0 } 
+		}, 
+
+		// Point 1
+		{ 
+			start: { x: 0,		y: 0 },
+			end:   { x: 50,		y: 0 } 
+		}, 
+
+		// Point 2
+		{ 
+			start: { x: 0,		y: 100 },
+			end:   { x: 50,		y: 100 } 
+		}, 
+
+		// Point 3
+		{ 
+			start: { x: 0,		y: 100 },
+			end:   { x: 0,		y: 100 } 
+		} 
+	];
+
+	tr_def[ tr.WIPE_RIGHT_THREEQUARTERS_DIAGONAL ] = [ 
+
+		// Point 0
+		{ 
+			start: { x: 0,		y: 0 },
+			end:   { x: 0,		y: 0 } 
+		}, 
+
+		// Point 1
+		{ 
+			start: { x: 0,		y: 0 },
+			end:   { x: 120,	y: 0 } 
+		}, 
+
+		// Point 2
+		{ 
+			start: { x: 0,		y: 100 },
+			end:   { x: 50,		y: 100 } 
+		}, 
+
+		// Point 3
+		{ 
+			start: { x: 0,		y: 100 },
+			end:   { x: 0,		y: 100 } 
+		} 
+	];
+
 	tr_def[ tr.WIPE_LEFT ] = [ 
 
 		{ 

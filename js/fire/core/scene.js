@@ -121,6 +121,10 @@ Fire.Scene = (function(doc){
 				translate = Fire.Graph,
 
 				transition_definition = Fire.TransitionDefs[ element.transition ];
+
+				translate.setWidth( this.width );
+
+				translate.setHeight( this.height );
 			
 			for( ; i < num_points; i++ ) {
 
@@ -172,7 +176,7 @@ Fire.Scene = (function(doc){
 			
 				vx, vy, elem, elem_x = [], elem_y = [], 
 
-				dur = 30; // TODO: this is hard coded and it shouldn't be...
+				dur = 60; // TODO: this is hard coded and it shouldn't be...
 
 			for( ; n < num_animations; n++ ) {
 

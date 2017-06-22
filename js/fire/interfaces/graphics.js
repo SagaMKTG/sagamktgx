@@ -5,28 +5,50 @@
 
  ----------------------------------------------------------------------
 */
-Fire.Graphics = Fire.Gr = (function( pixijs ){
+Fire.Graphics = Fire.Gr = (function( pixi ){
 
-	var engine = {},
 
-		pixi = pixijs,
+	function constructor( pixi ) {
 
-		ANCHOR_POSITION = 0.5;
+		this.proxy = pixi;
 
-	engine = _F.U.extend( engine, {
+		this.app = null;
+
+		this.graphics = null;
+
+		this.ANCHOR_POSITION = 0.5;
+
+		return this;
+
+	}
+
+	_F.U.extend( constructor.prototype, {
 
 		initGraphicsEngine: function( w, h ) {
 
-			return new pixi.Application( w, h, { antialias: true } );
+			this.app = new this.proxy.Application({ 
+
+				width : w,
+
+				height : h,
+
+				backgroundColor : 0xe4e5dd, // TODO: Make this not hard coded.
+
+				antialias : true,
+			});
+
+			this.graphics = new this.proxy.Graphics();
+
+			return this.app;
 		},
 
 		makeElementContainer: function( renderer ) {
 
-			var cntr = new px.Container();
+			var cntr = new this.proxy.Container();
 
-			cntr.x = renderer.width * ANCHOR_POSITION;
+			cntr.x = renderer.width * this.ANCHOR_POSITION;
 
-			cntr.y = renderer.height * ANCHOR_POSITION;
+			cntr.y = renderer.height * this.ANCHOR_POSITION;
 
 			return cntr;
 
@@ -34,14 +56,14 @@ Fire.Graphics = Fire.Gr = (function( pixijs ){
 
 		createMask: function() {
 
-			return new px.Graphics();
+			return new this.proxy.Graphics();
 		},
 
 		createImageSprite: function( imagePath ) {
 
-			var sprite = pixi.Sprite.fromImage( imagePath );
+			var sprite = this.proxy.Sprite.fromImage( imagePath );
 
-			sprite.anchor.set( ANCHOR_POSITION );
+			sprite.anchor.set( this.ANCHOR_POSITION );
 
 			return sprite;
 		},
@@ -50,17 +72,38 @@ Fire.Graphics = Fire.Gr = (function( pixijs ){
 
 			var instance = {};
 
-			instance.texture = pixi.Texture.fromVideo( videoPath );
+			instance.texture = this.proxy.Texture.fromVideo( videoPath );
 
-			instance.sprite = new pixi.Sprite( instance.texture );
+			instance.sprite = new this.proxy.Sprite( instance.texture );
 
-			instance.sprite.anchor.set( ANCHOR_POSITION );
+			instance.sprite.anchor.set( this.ANCHOR_POSITION );
 
 			return instance;
+		},
+
+		drawRect: function( options ) {
+
+			var len = options.x_vertices.length, i = 0;
+			// TODO: validate the options object.
+			
+			this.graphics.beginFill( parseInt( options.fillColor ) );
+
+			this.graphics.moveTo( options.x_vertices[0], options.y_vertices[0] );
+
+			i++;
+
+			for( ; i < len; i ++) {
+
+				this.graphics.lineTo( options.x_vertices[i], options.y_vertices[i] );
+			}
+
+			this.graphics.endFill();
+
+			this.app.stage.addChild( this.graphics );
 		}
 
 	});
 
-	return engine;
+	return new constructor( pixi );
 
 })( PIXI );

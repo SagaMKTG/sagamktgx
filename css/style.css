@@ -1,0 +1,16 @@
+#site-container {
+	margin:25px auto 0;
+}
+
+#site-container h1 {
+	position:absolute;
+    width: 300px;
+    left: 50%;
+    top: 250px;
+    margin-left: -150px;
+    text-align: center;
+    color: #ffffff;
+    font-family: "Helvetica Neue", Helvetica, sans-serif;
+    font-weight: 100;
+    font-size: 65px;
+}

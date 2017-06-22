@@ -17,13 +17,11 @@ Fire.Element = (function(){
 	
 	function constructor( options ) {
 
-		this.options = options;
-
 		_F.U.extend( this, options );
 
-		if( ! ELEM_TYPES[ this.type ] ) {
+		if( ! ELEM_TYPES[ this.type.toUpperCase() ] ) {
 
-			return false;
+			throw 'No Element type called ' + this.type;
 		}
 
 		this.init().prepareForStage();
@@ -39,15 +37,21 @@ Fire.Element = (function(){
 
 			switch( this.type ) {
 
-				case ELEMS_TYPE.VIDEO :
+				case ELEM_TYPES.BLOCK :
 
-					this.elem = _F.Elements.Video.create();
+					_F.Element.Block.create( this );
 
 					break;
 
-				case ELEMS_TYPE.IMAGE :
+				case ELEM_TYPES.IMAGE :
 
-				this.elem = _F.Elements.Image.create();
+					this.elem = _F.Element.Image.create( this );
+
+					break;
+
+				case ELEM_TYPES.VIDEO :
+
+					this.elem = _F.Element.Video.create( this );
 
 					break;
 
@@ -62,9 +66,14 @@ Fire.Element = (function(){
 
 		prepareForStage: function() {
 
-			this.container.addChild( this.elem.sprite );
+			if( this.elem && this.elem.sprite ) {
 
-			this.mask = _F.Graphics.createMask(); 
+				this.container.addChild( this.elem.sprite );
+
+				this.mask = _F.Graphics.createMask(); 
+			}
+
+			return this;
 		}
 
 	});
@@ -73,7 +82,7 @@ Fire.Element = (function(){
 
 		create: function( options, renderer ) {
 
-			this.renderer = renderer;
+			options.renderer = renderer;
 
 			return new constructor( options );
 		}

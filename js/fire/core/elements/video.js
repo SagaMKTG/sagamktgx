@@ -1,12 +1,12 @@
 (function() {
 
-	function constructor( options ) {
+	function constructor( element ) {
 
 		var videoInstance = {};
 
-		_F.U.extend( this, options || _F.defaults );
+		_F.U.extend( this, element || _F.defaults );
 
-		videoInstance = _F.Graphics.createVideoSprite( options.video );
+		videoInstance = _F.Graphics.createVideoSprite( element.video );
 
 		this.sprite = videoInstance.sprite;
 
@@ -20,9 +20,9 @@
 
 		Video : {
 
-			create: function( options ) {
+			create: function( element ) {
 
-				return new constructor( options );
+				return new constructor( element );
 			}
 		}
 	});

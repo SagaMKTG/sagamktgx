@@ -1,39 +1,45 @@
-Fire.EasingFn = {
+Fire.EasingFunctions = (function(){
 
-	quadIn: function( t, b, c, d ) {
+	// TODO: Add other easing formulas as needed. Got these from : http://gizma.com/easing/
+	var easing_functions = {
 
-		t /= d;
+		quadIn: function( t, b, c, d ) {
 
-		return c * t * t + b;
-	},
+			t /= d;
 
-	quadOut: function( t, b, c, d ) {
+			return c * t * t + b;
+		},
 
-		t /= d;
+		quadOut: function( t, b, c, d ) {
 
-		return -c * t * ( t - 2 ) + b;
-	},
+			t /= d;
 
-	cubicOut: function( t, b, c, d ) {
+			return -c * t * ( t - 2 ) + b;
+		},
 
-		t /= d;
+		cubicOut: function( t, b, c, d ) {
 
-		return c * t * t * t + b;
-	},
+			t /= d;
 
-	quintIn: function( t, b, c, d ) {
+			return c * t * t * t + b;
+		},
 
-		t /= d;
+		quintIn: function( t, b, c, d ) {
 
-		return c * t * t * t * t * t + b;
-	},
+			t /= d;
 
-	quintOut: function( t, b, c, d ) {
+			return c * t * t * t * t * t + b;
+		},
 
-		t /= d;
+		quintOut: function( t, b, c, d ) {
 
-		t--;
+			t /= d;
 
-		return c * ( t * t * t * t * t + 1 ) + b;
-	}
-};
+			t--;
+
+			return c * ( t * t * t * t * t + 1 ) + b;
+		}
+	};
+
+	return easing_functions;
+})();

@@ -1,4 +1,4 @@
-Fire.Util = (function(){
+Fire.Util = Fire.U = (function(){
 
 	/*
 	 ----------------------------------------------------------------------
@@ -81,7 +81,20 @@ Fire.Util = (function(){
 	} 
 
 	return {
-		extend: extend
+
+		extend : extend,
+
+		clone : clone,
+
+		keyName : keyName,
+
+		noop : noop,
+
+		isArray : isArray,
+
+		isNumber : isNumber,
+		
+		isString : isString
 	}
 })();
 

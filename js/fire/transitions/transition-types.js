@@ -1,19 +1,23 @@
-Fire.Transitions = {
+Fire.Transitions = (function(){
 
-	WIPE_RIGHT		:	"WipeRight",
+	var types = {
 
-	WIPE_LEFT		:	"WipeLeft",
+		WIPE_RIGHT		:	"WipeRight",
 
-	WIPE_UP			:	"WipeUp",
+		WIPE_LEFT		:	"WipeLeft",
 
-	WIPE_DOWN		:	"WipeDown",
+		WIPE_UP			:	"WipeUp",
 
-	SLANT_LEFT		:	"SlantLeft",
+		WIPE_DOWN		:	"WipeDown",
 
-	SLANT_RIGHT		:	"SlantRight",
+		SLANT_LEFT		:	"SlantLeft",
 
-	DIAGONAL_LEFT	:	"DiagonalLeft",
+		SLANT_RIGHT		:	"SlantRight",
 
-	DIAGONAL_RIGHT	:	"DiagonalRight"
+		DIAGONAL_LEFT	:	"DiagonalLeft",
 
-};
+		DIAGONAL_RIGHT	:	"DiagonalRight"
+	};
+
+	return types;
+})();

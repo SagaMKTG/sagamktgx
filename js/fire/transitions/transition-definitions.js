@@ -1,6 +1,7 @@
-Fire.TransitionDefinitions = (function( tr ) {
-	var obj = {};
-	obj[ tr.WIPE_RIGHT ] = [ 
+Fire.TransitionDefs = (function( tr ) {
+	var tr_def = {};
+
+	tr_def[ tr.WIPE_RIGHT ] = [ 
 
 		// Point 0
 		{ 
@@ -27,7 +28,7 @@ Fire.TransitionDefinitions = (function( tr ) {
 		} 
 	];
 
-	obj[ tr.WIPE_LEFT ] = [ 
+	tr_def[ tr.WIPE_LEFT ] = [ 
 
 		{ 
 			start: { x: 100,	y: 0 },
@@ -50,7 +51,7 @@ Fire.TransitionDefinitions = (function( tr ) {
 		} 
 	];
 
-	obj[ tr.WIPE_UP ] = [ 
+	tr_def[ tr.WIPE_UP ] = [ 
 
 		{ 
 			start: { x: 0,		y: 100 },
@@ -73,7 +74,7 @@ Fire.TransitionDefinitions = (function( tr ) {
 		} 
 	];
 
-	obj[ tr.WIPE_DOWN ] = [ 
+	tr_def[ tr.WIPE_DOWN ] = [ 
 
 		{ 
 			start: { x: 0,		y: 0 },
@@ -96,7 +97,7 @@ Fire.TransitionDefinitions = (function( tr ) {
 		} 
 	];
 
-	obj[ tr.SLANT_LEFT ] = [ 
+	tr_def[ tr.SLANT_LEFT ] = [ 
 
 		{ 
 			start: { x: 35,		y: 0 },
@@ -119,7 +120,7 @@ Fire.TransitionDefinitions = (function( tr ) {
 		} 
 	];
 
-	obj[ tr.SLANT_RIGHT ] = [ 
+	tr_def[ tr.SLANT_RIGHT ] = [ 
 
 		{ 
 			start: { x: 65,		y: 0 },
@@ -142,7 +143,7 @@ Fire.TransitionDefinitions = (function( tr ) {
 		} 
 	];
 
-	obj[ tr.DIAGONAL_LEFT ] = [ 
+	tr_def[ tr.DIAGONAL_LEFT ] = [ 
 
 		{ 
 			start: { x: 0,		y: 0 },
@@ -165,7 +166,7 @@ Fire.TransitionDefinitions = (function( tr ) {
 		} 
 	];
 
-	obj[ tr.DIAGONAL_RIGHT ] = [ 
+	tr_def[ tr.DIAGONAL_RIGHT ] = [ 
 
 		{ 
 			start: { x: 0,		y: 0 },
@@ -187,4 +188,6 @@ Fire.TransitionDefinitions = (function( tr ) {
 			end:   { x: 0,	y: 100 } 
 		} 
 	];
+
+	return tr_def;
 })( Fire.Transitions );
